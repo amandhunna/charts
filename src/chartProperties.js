@@ -1,24 +1,27 @@
-const data = () => {
+const data = (values = {} ) => {
+    const { hover, labels, type  } = values;
+
+    let chartPoints = [12, 19, 3, 5, 2, 3];
+
+    const odds = ['line', 'scatter'].includes(type);
+    if(odds) { }
+
     const data = {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Red', 'Blue', 'Yellow', 'Green'], // labels
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'ONE', //hover,
+            data: chartPoints,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                '#1abc9c',
+                '#27ae60',
+                '#e74c3c',
+                '#bdc3c7',
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                '#1abc9c',
+                '#27ae60',
+                '#e74c3c',
+                '#bdc3c7',
             ],
             borderWidth: 1
         }]
@@ -26,15 +29,26 @@ const data = () => {
     return data;
 }
 
-const options = () => {
+const options = (values = {}) => { 
+    
+    const { 
+        enableYScale = false,
+        enableXScale = false,
+        showLines = true
+    } = values;
+
    const  options =  {
-        scales: {
-            yAxes: [{
-                ticks: {
+     scales: {
+            ...enableYScale ? { 
+                yAxes: [{
+                    ticks: {
                     beginAtZero: true
-                }
-            }]
-        }
+                  }
+                }],
+            } : {}
+        },
+        spanGaps: false,
+        showLines: showLines, // line graph
     }
     return options;
 }
