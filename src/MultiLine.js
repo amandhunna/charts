@@ -11,7 +11,7 @@ function LineChart(props) {
     Chart.defaults.global.defaultFontFamily = "Lato";
     Chart.defaults.global.defaultFontSize = 18;
 
-    var dataFirst = {
+    const dataFirst = {
         label: "Car A - Speed (mph)",
         data: [0, 59, 75, 20, 20, 55, 40],
         lineTension: 0,
@@ -19,7 +19,7 @@ function LineChart(props) {
         borderColor: 'red'
     };
 
-    var dataSecond = {
+    const dataSecond = {
         label: "Car B - Speed (mph)",
         data: [20, 15, 60, 60, 65, 30, 70],
         lineTension: 0,
@@ -27,12 +27,12 @@ function LineChart(props) {
         borderColor: 'blue'
     };
 
-    var speedData = {
+    const speedData = {
       labels: ["0s", "10s", "20s", "30s", "40s", "50s", "60s"],
       datasets: [dataFirst, dataSecond]
     };
 
-    var chartOptions = {
+    const chartOptions = {
       legend: {
         display: true,
         position: 'top',
@@ -43,7 +43,7 @@ function LineChart(props) {
       }
     };
     const ctx = colorPickerRef.current.getContext('2d');
-    var lineChart = new Chart(ctx, {
+    new Chart(ctx, {
       type: 'line',
       data: speedData,
       options: chartOptions

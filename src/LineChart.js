@@ -21,6 +21,7 @@ function LineChart(props) {
     console.log(chartData)
 
   useEffect(() => {
+    Chart.platform.disableCSSInjection = true;
     const ctx = colorPickerRef.current.getContext('2d');
     new Chart(ctx, {
     type: 'line',

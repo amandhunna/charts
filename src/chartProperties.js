@@ -14,8 +14,8 @@ const data = (values = {} ) => {
             backgroundColor: [
                 '#1abc9c',
                 '#27ae60',
-                '#e74c3c',
                 '#bdc3c7',
+                '#e74c3c',
             ],
             borderColor: [
                 '#1abc9c',
@@ -38,6 +38,7 @@ const options = (values = {}) => {
     } = values;
 
    const  options =  {
+    events: ['click'],
      scales: {
             ...enableYScale ? { 
                 yAxes: [{

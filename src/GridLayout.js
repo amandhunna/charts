@@ -7,6 +7,7 @@ import DoughnutChart from './DoughnutChart';
 import LineChart from './LineChart';
 import CommonChart from './CommonChart';
 import MultiLine from './MultiLine';
+import MultiDoughnutChart from './MultiDoghnut';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,52 +32,49 @@ export default function GridLayout() {
     <Grid container className={classes.root} spacing={2}>
       <Grid item xs={12}>
         <Grid container justify="center" spacing={spacing}>
-            <Grid xs={4} item>
+            <Grid xs={6}  md={3} item>
               <Paper className={classes.paper} > 
               <BarChart />
                </Paper>
             </Grid>
-            <Grid xs={4} item>
+            <Grid  xs={6}  md={3}  item>
               <Paper className={classes.paper} > 
-              <CommonChart type='radar'/>  
-               </Paper>
-            </Grid>
-        </Grid>
-      </Grid>
-      <Grid item xs={12}>
-        <Grid container justify="center" spacing={spacing}>
-            <Grid xs={6} item>
-              <Paper className={classes.paper} > 
-              <CommonChart type='doughnut'/>  
+              <DoughnutChart />  
               </Paper>
             </Grid>
-            <Grid xs={6} item>
+            <Grid  xs={6}  md={3}  item>
               <Paper className={classes.paper} > 
-              <CommonChart type='polarArea'/>
-               </Paper>
+              <MultiDoughnutChart />  
+              </Paper>
             </Grid>
-        </Grid>
-      </Grid>
-      <Grid item xs={12}>
-        <Grid container justify="center" spacing={spacing}>
-            <Grid xs={6}  md={4}  item>
+            <Grid xs={6}  md={3}  item>
               <Paper className={classes.paper} > 
               <LineChart data={lineChartData}/>  
               </Paper>
             </Grid>
-            <Grid xs={6} md={4} item>
+            <Grid xs={6} md={3} item>
               <Paper className={classes.paper} > 
               <LineChart fill={true}  data={lineChartData}/>  
                </Paper>
             </Grid>
-            <Grid xs={6} md={4}item>
+            <Grid xs={6} md={3} item>
               <Paper className={classes.paper} >  
               <MultiLine />
                </Paper>
             </Grid>
-            <Grid xs={6} md={4}item>
+            <Grid xs={6} md={3} item>
               <Paper className={classes.paper}  >  
               <MultiLine fill={true} />
+               </Paper>
+            </Grid>
+            <Grid xs={6} md={3}  item>
+              <Paper className={classes.paper} > 
+              <CommonChart type='radar'/>  
+               </Paper>
+            </Grid>
+            <Grid  xs={6} md={3}  item>
+              <Paper className={classes.paper} > 
+              <CommonChart type='polarArea'/>
                </Paper>
             </Grid>
         </Grid>
